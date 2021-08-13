@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Oggongo Maps</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script> -->
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+   <link rel="stylesheet" href="leaflet-search.css" />
+   <script type="text/javascript" src="leaflet-search.js"></script>
+
+   <!-- basemap controller -->
+   <link rel="stylesheet" href="L.Control.Basemaps.css" />
+   <script type="text/javascript" src="L.Control.Basemaps.js"></script>
+
+
+
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+  <link rel="stylesheet" href="https://www.ovrdc.org/apps/assets/ovrdc-map-plugins-leaflet-v1.css" />
+
+
+  <!-- <script src="ovrdc-map-plugins-leaflet-v1um.js"></script> -->
+
+  <link rel="stylesheet" href="L.Control.Sidebar.css" />
+  <script type="text/javascript" src="L.Control.Sidebar.js"></script>
+
+  <script type="text/javascript" src="bundle.js"></script>
+
+  <!-- <script type="text/javascript" src="leaflet-easyPrint/dist/bundle.js"></script> -->
+
+
+  <link rel="stylesheet" href="L.Control.Locate.min.css" />
+  <script type="text/javascript" src="L.Control.Locate.min.js"></script>
+
+
+  <link rel="stylesheet" href="leaflet.defaultextent.css" />
+  <script type="text/javascript" src="leaflet.defaultextent.js"></script>
+
+  <link rel="stylesheet" href="Control.FullScreen.css" />
+  <script type="text/javascript" src="Control.FullScreen.js"></script>
+
+
+  <!-- <link rel="stylesheet" href="sidebar-v2-0.4.0/css/leaflet-sidebar.css" />
+  <script type="text/javascript" src="sidebar-v2-0.4.0/js/leaflet-sidebar.js"></script> -->
+
+
+  <link rel="stylesheet" href="leaflet-control-credits.css" />
+  <script type="text/javascript" src="leaflet-control-credits.js"></script>
+
+  <!-- Scalebar -->
+  <link rel="stylesheet" href="L.Control.BetterScale.css" />
+  <script type="text/javascript" src="L.Control.BetterScale.js"></script>
+
+  <!-- Adverts -->
+  <link rel="stylesheet" href="leaflet-liveupdate.css" />
+  <script src="leaflet-liveupdate.js"></script>
+
+
+   <link rel="stylesheet" href="leaflet-messagebox.css" />
+   <script src="leaflet-messagebox.js"></script>
+
+   <!-- control zoom -->
+   <link rel="stylesheet" type="text/css" href="L.Control.ZoomBar.css"/>
+   <script type="text/javascript" src="L.Control.ZoomBar.js"></script>
+
+   <!-- control zoombox -->
+   <link rel="stylesheet" type="text/css" href="L.Control.ZoomBox.css"/>
+   <script type="text/javascript" src="L.Control.ZoomBox.js"></script>
+
+   <!-- control zoombox -->
+   <link rel="stylesheet" type="text/css" href="leaflet-measure.css"/>
+
+   <script type="text/javascript" src="leaflet-measure.js"></script>
+
+  <script src="leaflet-hash.js"></script>
+
+  <script src="Leaflet.VectorGrid.bundled.js"></script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" />
+
+  <!--HERE JS libs-->
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <!--HERE JS libs-->
+
+
+
+  </head>
+  <style media="screen">
+
+    html, body,#map {
+      height: 100%;
+      width:100%;
+      font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+    }
+
+
+
+
+    /* ui-css */
+
+    .modal-content {
+      border-radius: 0;
+    }
+    .archivo, .archivo h5 {
+      font-family: 'Archivo Narrow', sans-serif;
+    }
+    h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+      line-height: 1.2;
+    }
+    .h5, .h6, h5, h6 {
+      line-height: 1.3;
+    }
+    h2, h3, h4, h5, .archivo-black {
+      /*font-family: 'Archivo Black', sans-serif;*/
+      font-family: 'Montserrat', sans-serif;
+    }
+    .leaflet-bar,
+    .leaflet-bar a:first-child, a:last-child  {
+    	border-radius: 1px;
+    }
+    /*.leaflet-control-loading.is-loading {
+      width: 36px;
+      height: 36px;
+    }*/
+    .leaflet-container a.leaflet-popup-close-button {
+        padding: 4px 0px 0 0;
+        width: 24px;
+        height: 22px;
+    }
+    .leaflet-bar button:hover, a:hover {
+        background-color: #f4f4f4;
+        box-shadow: 0 0 7px #999!important;
+    }
+    .leaflet-control-minimap {
+    	border-radius: 1px;
+    }
+    .leaflet-control-minimap .leaflet-top.leaflet-left {
+    	display: none;
+    }
+    .leaflet-control-fullscreen.leaflet-bar.leaflet-control,
+    .leaflet-bar.leaflet-control-defaultextent.leaflet-control,
+    .leaflet-control-locate.leaflet-bar.leaflet-control,
+    .leaflet-bar.easy-button-container.leaflet-control,
+    .leaflet-control-easyPrint.leaflet-bar.leaflet-control {
+    	z-index: 9999;
+    }
+    .leaflet-top.leaflet-right .leaflet-control-zoom-in,
+    .leaflet-top.leaflet-left .leaflet-control-zoom-in {
+      border-bottom: 1px solid #ACACAC;
+      border-radius: 1px 1px 0 0;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+    }
+    .leaflet-top.leaflet-right .leaflet-control-zoom-out,
+    .leaflet-top.leaflet-left .leaflet-control-zoom-out,
+    .leaflet-top.leaflet-left .leaflet-control-loading {
+      border-radius: 0 0 1px 1px;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      border-bottom: none;
+    	z-index:10;
+    }
+    .leaflet-top.leaflet-left .leaflet-control-zoom {
+    	position: absolute;
+      left: 0;
+      top: 42px;
+      direction: ltr;
+    	box-shadow: 0 0 7px #999!important;
+    }
+
+    svg.leaflet-zoom-animated > g > path {
+      transition-property: fill, fill-opacity, stroke, stroke-opacity, stroke-width;
+      transition-duration: 0.8s;
+    }
+    .easy-button-button.leaflet-bar-part.close-sidebar-active {
+    margin-left: 3px;
+    background: transparent;
+    }
+    /*Attribution Toggle*/
+    .leaflet-control-attribution {display: none;}
+    .attribution{display:block!important;}
+    .btn.btn-link.leaflet-control{margin:0;font-size:11px;outline:none;background:rgba(255, 255, 255, 0.7);padding: 0 5px;}
+    /**/
+    .leaflet-popup-content-wrapper {
+      border-radius: 1px;
+    }
+    .leaflet-top.leaflet-left .leaflet-control {
+      border: transparent;
+    }
+    /*OVRDC Leaflet Modern UI*/
+    .leaflet-control-search .search-input {
+      height:28px;
+      font-size: large;
+    }
+    .leaflet-touch .leaflet-bar a {
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+    }
+    .leaflet-control-search .search-cancel {
+        z-index: 401;
+        margin: 7px 5px 0;
+    }
+    /*Media queries*/
+    @media only screen and (max-width: 520px) {
+      .leaflet-top.leaflet-left,
+      .leaflet-sidebar.left.visible{
+        width: 75%;
+        right: 61px;
+      }
+      /*.leaflet-sidebar {
+        width: 70%;
+      }*/
+      .leaflet-control-search .search-cancel {
+        right: 110px!important;
+      }
+    }
+    /*@media only screen and (min-width: 480px) {
+      .leaflet-top.leaflet-left {
+        right: 61px;
+        width:450px;
+      }
+      .leaflet-sidebar.left.visible {
+      width:450px;
+      }
+      .leaflet-sidebar {
+        width:60%;
+      }
+    }*/
+    @media only screen and (min-width: 521px) {
+      .leaflet-top.leaflet-left,
+      .leaflet-sidebar {
+        width: 550px;
+      }
+      .leaflet-control-search .search-cancel {
+    	left: 275px;
+      }
+      .leaflet-control-search .search-input {
+    	  max-width: 700px!important;
+      }
+    	.leaflet-top.leaflet-right {
+    		top: 0px;
+        z-index: 1000;
+    	}
+    }
+    /*end media queries*/
+    /*easyButton bar toggle*/
+    #toggle {
+        position: absolute;
+        left: 3px;
+        z-index:9999;
+    }
+    .fa-lg {
+    	vertical-align: -10%;
+    }
+    .fa-border {
+        margin: -7px;
+        padding: 3.7px;
+        border: solid .08em #9C9C9C;
+        background: whitesmoke;
+    }
+    .leaflet-bar a:hover {
+      /*background-color: #fff;*/
+    }
+    .leaflet-top.leaflet-left {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: -webkit-inline-box;
+        display: inline-flex;
+        direction: rtl;
+        position: absolute;
+        left: 10px!important;
+        top:10px;
+        background: white;
+        box-shadow: 0 1px 7px #999!important;
+        height: 36px;
+        padding-right:6px;
+        border-radius: 1px;
+    }
+    .leaflet-top.leaflet-left .leaflet-control {
+      margin: 5px 1px;
+      box-shadow: none;
+      /*z-index:1000;*/
+    }
+    .leaflet-top.leaflet-left .geocoder-control-input {
+      padding: 5px 0 5px 30px;
+      width: 100%;
+      height: 38px;
+      direction: ltr;
+      box-shadow: none;
+      font-size: large;
+      border: none;
+    }
+    .leaflet-top.leaflet-left .geocoder-control-suggestions {
+      direction: ltr;
+    }
+    .leaflet-top.leaflet-left .geocoder-control-expanded,
+    .leaflet-top.leaflet-left .leaflet-touch .geocoder-control-expanded {
+      margin: 0;
+      width: 100%;
+    }
+    /*Leaflet Search*/
+    .leaflet-control-search .search-input {
+    	width: 70%;
+    }
+    .leaflet-control-search .search-tooltip {
+      background-color: #fff;
+      font-size: larger;
+      max-height:191px;
+    }
+    .leaflet-container .leaflet-control-search {
+      position: absolute!important;
+      padding: 1px 0 0 30px;
+      margin: 0;
+      width: 100%;
+      z-index: initial;
+      -webkit-border-radius: 1px;
+      border-radius: 1px;
+      height: 38px;
+      /*box-shadow: 0 1px 7px #999!important;*/
+      direction: ltr;
+      left:0;
+    	background:	transparent;
+    }
+    .leaflet-control-search .search-button {
+      display: none;
+    }
+    .leaflet-top.leaflet-bar {
+      box-shadow: none;
+    }
+    .leaflet-sidebar {
+      padding: 0;
+      margin-top: 58px;
+      z-index: 401!important;
+      max-height:85%;
+      overflow:auto;
+      height: auto;
+      border: none;
+    }
+    .leaflet-touch.leaflet-sidebar {
+      max-height:75%;
+    }
+    .leaflet-touch .leaflet-sidebar > .leaflet-control {
+      box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+      border: none;
+    }
+    .leaflet-sidebar.left {
+      left: -1000px;
+    }
+    .leaflet-sidebar.left.visible {
+      left: 10px;
+      box-shadow: 0 1px 7px #999!important;
+    }
+    .leaflet-sidebar > .leaflet-control {
+      -webkit-border-radius: 1px;
+      border-radius: 1px;
+      box-shadow: 0 1px 7px #999;
+    }
+
+    @-webkit-keyframes fadeIn { from { opacity:0.4; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0.4; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0.4; } to { opacity:1; } }
+    /*Layer Control*/
+    .leaflet-control-layers {
+      border-radius: 1px;
+    }
+    .leaflet-top.leaflet-left .leaflet-control-layers.leaflet-control {
+      background: none;
+      z-index: 10000;
+    }
+    .leaflet-top.leaflet-left .leaflet-control-layers.leaflet-control.leaflet-control-layers-expanded {
+      margin-right: -6px!important;
+      box-shadow: 0 0 7px #999!important;
+      background: #fff!important;
+      margin-top: 0!important;
+      position: absolute;
+    }
+    .leaflet-top.leaflet-left .leaflet-control-layers-expanded .leaflet-control-layers-list {
+      overflow: hidden;
+      direction: ltr;
+    }
+    /*.leaflet-top.leaflet-right .leaflet-control-layers-toggle,
+    .leaflet-top.leaflet-right .leaflet-touch .leaflet-control-layers-toggle {
+      margin: 8px;
+      background-size: cover;
+    }*/
+    /*****/
+
+    .leaflet-touch .leaflet-bar button {
+      line-height: 26px;
+    }
+    .leaflet-google-layer.leaflet-top.leaflet-left {
+      top: 0px;
+      left: 0px !important;
+    }
+
+
+    /* ui-css */
+
+    .leaflet-right .leaflet-control {
+        box-shadow: 0 0px 0px rgba(0,0,0,0);
+    }
+
+
+    .leaflet-control-messagebox {
+            background-color: transparent;
+            text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+          }
+
+          .list-group-item {
+          position: relative;
+          display: block;
+          padding: .75rem 1.25rem;
+          background-color: #fff;
+          border: 1px solid rgba(0,0,0,.125);
+      }
+
+      .atm_poi {
+   fill: url(#atm_icon);
+
+}
+
+.banks_poi {
+fill: url(#bank_icon);
+
+}
+
+.hospitals_poi{
+fill: url(#hospital_icon);
+
+}
+
+/* Here style */
+
+.trip01 {
+    float: left;
+    display: block;
+    clear: both;
+    text-align: center;
+    position: static;
+    transform: translate(0, 0);
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0
+}
+
+.trip01 span {
+    padding: 0 10px 0 5px
+}
+
+.main_search {
+    float: left;
+    display: block;
+    clear: both;
+    text-align: center;
+    position: static;
+    transform: translate(0, 0);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0
+}
+
+.main_search span {
+    display: inline;
+    margin: 0 2px 0 0
+}
+
+.m_search {
+    font-size: 14px;
+    border: 4px solid #1e3577;
+    width: 260px;
+    color: #999;
+    padding: 0 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: 300;
+    height: 48px;
+    margin: 0;
+}
+
+.m_search:focus {
+    outline-color: transparent;
+    outline-style: none;
+    border: 4px solid d8d766;
+    color: #222;
+    background-color: #d8d766
+}
+
+.add_button {
+    font-size: 24px;
+    border: 4px solid #d8d766;
+    color: #222;
+    padding: 0 20px;
+    background-color: #d8d766;
+    font-weight: 300;
+    cursor: pointer;
+    height: 72px;
+    margin: 0
+}
+
+.go {
+    margin: 0
+}
+
+.go .main_button {
+    padding: 0 15px;
+    border: 4px solid ##1e3577;
+    background-color: #939244;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+    height: 72px;
+    margin: 0;
+    text-transform: uppercase
+}
+
+
+.trip02 {
+    float: left;
+    display: block;
+    clear: both;
+    text-align: center;
+    position: static;
+    transform: translate(0, 0);
+    width: 100%;
+    padding: 10px 0;
+    font-size: 12px
+}
+
+.trip02 span {
+    padding: 0 10px 0 5px
+}
+
+.hits {
+    float: left;
+    display: block;
+    clear: both;
+    text-align: left;
+    position: static;
+    transform: translate(0, 0);
+    width: 100%;
+    padding: 10px 0
+}
+
+.hits ul {
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-size: 0
+}
+
+.hits ul li {
+    margin: 5px 5px 5px 0;
+    padding: 0;
+    line-height: 20px;
+    height: 20px
+}
+
+.hits ul li a {
+    margin: 0;
+    padding: 5px 15px;
+    background-color: #b04343;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 20px;
+    line-height: 20px;
+    height: 20px
+}
+
+.hits ul li a:hover {
+    background-color: #642a2a
+}
+
+.hits ul li a span {
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-weight: 400;
+    color: #222
+}
+
+.hits ul li a:hover span {
+    color: #fff
+}
+
+.modal_msg {
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 0;
+    font-size: 12px;
+    color: #fff;
+    background-color: #642a2a;
+    font-weight: 700;
+    position: absolute
+}
+
+.cssmodalhidden {
+    display: none
+}
+
+.divauto {
+    position: relative;
+    display: inline;
+}
+
+#olAuto {
+    position: relative;
+    max-width: 430px;
+    background:#ffffff;
+    color: #666666;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+#olAuto>li {
+    cursor: pointer;
+    color: grey;
+    font-size: 120%;
+    line-height: initial;
+    /* margin-left: 30px; */
+    text-align: left;
+    list-style-type: none;
+    /* border-style: solid; */
+    box-shadow: #575b63 0px 0px 4px;
+}
+
+#olAuto>li:hover {
+    color: black;
+}
+
+#add_btn {
+    margin-left: 12%;
+    display: inline-block;
+}
+
+#show_btn {
+    margin-left: 0.1%;
+    display: inline-block;
+}
+
+
+
+
+@media all and (orientation:landscape) {
+
+    .modal_msg {
+        left: 0;
+        top: 120px
+    }
+}
+
+
+@media all and (orientation:landscape) and (max-width:1280px) and (min-width:760px) {
+
+
+    .m_search {
+        font-size: 20px;
+        border: 4px solid ##1e3577;
+        width: 300px;
+        color: #999;
+        padding: 0 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+        font-weight: 300;
+        height: 54px;
+        margin: 0
+    }
+
+    .add_button {
+        font-size: 20px;
+        border: 4px solid #d8d766;
+        color: #222;
+        padding: 0 10px;
+        background-color: #d8d766;
+        font-weight: 300;
+        cursor: pointer;
+        height: 62px;
+        margin: 0
+    }
+
+    .go .main_button {
+        padding: 0 10px;
+        border: 4px solid ##1e3577;
+        background-color: #939244;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        height: 62px;
+        margin: 0
+    }
+}
+
+@media all and (orientation:portrait) {
+
+    .modal_msg {
+        left: 0;
+        top: 120px
+    }
+}
+
+
+@media all and (max-width:360px) {
+    header ul li {
+        float: left;
+        display: block;
+        padding: 0 20px 0 0
+    }
+
+    header ul li a {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 700;
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
+        float: left;
+        display: block;
+        letter-spacing: 0px
+    }
+
+
+    .trip01 {
+        font-size: 11px
+    }
+
+    .m_search {
+        font-size: 7px;
+        border: 4px solid ##1e3577;
+        width: 140px;
+        color: #999;
+        padding: 0 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+        font-weight: 300;
+        height: 48px;
+        margin: 0;
+    }
+
+    .add_button {
+        font-size: 14px;
+        border: 4px solid #d8d766;
+        color: #222;
+        padding: 0 10px;
+        background-color: #d8d766;
+        font-weight: 300;
+        cursor: pointer;
+        height: 56px;
+        margin: 0
+    }
+
+    .go .main_button {
+        padding: 0 10px;
+        border: 4px solid ##1e3577;
+        background-color: #939244;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        height: 56px;
+        margin: 0
+    }
+
+    .trip02 {
+        font-size: 4px
+    }
+
+    .trip02 span {
+        padding: 0 5px
+    }
+
+    .hits ul li a {
+        font-size: 4px
+    }
+
+
+    .modal_msg {
+        left: 0;
+        top: 80px
+    }
+}
+
+@media all and (orientation:landscape) and (max-width:760px) {
+
+}
+
+#maph {
+    height: 40vh;
+    width: 95vw;
+}
+
+
+
+/* Here style end */
+
+  </style>
+  <body>
+
+    <!--Start Map Post Content-->
+    <div class="blank"></div>
+    <script>
+      $(window).load(function() {
+        // Animate loader off screen
+        $(".blank").delay(100).fadeOut();
+      });
+    </script>
+
+
+
+      <div id="map">
+
+    <div id="sidebar">
+      <h3 id="logotext">Oggongo Web Map</h3><img src="Ogsinfo.png" alt="">
+      <!-- Here -->
+      <main>
+      <form action="">
+          <div class="main_area1" id="main_thing">
+              <center>
+                  <h1>Find your way</h1>
+                  <div class="trip01">
+                      <input name="rb01" type="radio" value="round" checked><span>round trip</span>
+                      <input name="rb01" type="radio" value="destination"><span>destination</span>
+                  </div>
+                  <br />
+                  <div class="trip02">
+                      <input name="transportmode" type="radio" value="pedestrian">
+                      <span>Pedestrian</span>
+                      <input name="transportmode" type="radio" value="cycling">
+                      <span>Cycling</span>
+                      <input name="transportmode" type="radio" value="driving" checked>
+                      <span>Driving</span>
+                      <input name="transportmode" type="radio" value="publictransport">
+                      <span>Public Transport</span>
+                  </div>
+                  <br />
+                  <div class="main_search">
+                      <input id="auto-complete" name="auto-complete" type="text" placeholder="Destination" class="m_search" />
+                      <div class="go" id="show_btn">
+                          <input id="show_button" name="show_button" type="button" value="Show!" class="main_button" />
+                      </div>
+                      <center>
+                          <ol id="olAuto"></ol>
+                      </center>
+                  </div>
+                  <div class="hits">
+                      <ul id="ulDestinations">
+                                          <!--
+                          Include when editing CSS:
+                          <li><a href="#">Waterfall 01 <span>x</span></a></li>
+                          <li><a href="#">Waterfall 02 <span>x</span></a></li>
+                          <li><a href="#">Waterfall 03 <span>x</span></a></li>
+                          -->
+                      </ul>
+                  </div>
+              </center>
+          </div>
+      </form>
+</main>
+      <!-- Here -->
+      <p>
+        This is a sample interactive map created for the infrastructure mapping . The map includes identify, feature search, geolocation, fullscreen, address search, basic print and a variety of basemaps. Other functionality can be added , such as measure, buffer, etc.
+      </p>
+      <em>This map uses client-side rendering and works best on modern browsers including Chrome, Firefox and IE 11+, on both desktop and mobile. Performance will depend upon device and network capabilities.</em>
+      <div id="info">
+        <hr />
+        <p>Click the map to show the latitude and longitude.</p>
+    </div>
+
+
+
+    <div>
+      <hr />
+      <button id="showTools" type="button" class="btn btn-default btn-xs btn-block">Show Map Tools Legend</button>
+      <button id="hideTools" type="button" class="btn btn-default btn-xs btn-block" style="display:none;">Hide Map Tools Legend</button>
+      <div class="toolLegend" style="display:none;">
+        <hr />
+        <div class="list-group" style="text-align:left;">
+          <li class="list-group-item"><i class='fa fa-bars fa-fw fa-lg'></i> Open Sidebar</li>
+
+          <li class="list-group-item"><i class='fa fa-exchange fa-fw fa-lg'></i> Toggle Address Search</li>
+
+          <li class="list-group-item"><i class="fa fa-square fa-fw fa-lg" aria-hidden="true"></i>Adverts live</li>
+          <li class="list-group-item"><img src="https://www.ovrdc.org/apps/assets/images/fullscreen-img.png" style="padding:0 1px;width:22px;"></img> Fullscreen</li>
+          <li class="list-group-item"><i class='fa fa-globe fa-fw fa-lg'></i> Default Map Extent</li>
+          <li class="list-group-item"><i class='fa fa-map-marker fa-fw fa-lg'></i> Show/Follow Your Location</li>
+
+          <li class="list-group-item"><i class='fa fa-cogs fa-fw fa-lg'></i> Toggle Map Tools (Mobile Only)</li>
+          <li class="list-group-item"><img src="https://www.ovrdc.org/apps/assets/cssjs/images/layers-bl.png" style="padding:0 1px;width:22px;"></img> Toggle Map Layers</li>
+
+        </div>
+      </div>
+      <hr />
+    </div>
+    <script>
+    $("#showTools").click(function() {
+      $(".toolLegend").toggle();
+      $("#showTools").toggle();
+      $("#hideTools").toggle();
+    });
+    $("#hideTools").click(function() {
+      $(".toolLegend").toggle();
+      $("#showTools").toggle();
+      $("#hideTools").toggle();
+    });
+    </script>
+
+    <div id="sidebarFooter"><a href='https://oggongo.com/' target='blank' style='text-decoration:none;'>OGS</a> | <a href="http://3.15.24.127:8080/geonetwork/srv/eng/catalog.search#/search">Data Catalogue</a> | <a href="3" data-toggle="modal" data-target="#introModal"><i class="fa fa-info-circle"></i> Map Info</a> | <span class="text-muted">Map Updated: 04/05/2020</span>
+   </div>
+   <svg>
+  <defs>
+   <pattern id="atm_icon" x="0" y="0" width="18" height="18" >
+    <image xlink:href="atm.svg" x="3" y="5" width="18" height="20" color="red" />
+    </pattern>
+   </defs>
+ </svg>
+
+ <svg>
+<defs>
+ <pattern id="bank_icon" x="0" y="0" width="18" height="18" >
+  <image xlink:href="banks2.svg" x="3" y="5" width="18" height="20" color="red" />
+  </pattern>
+ </defs>
+</svg>
+
+<svg>
+<defs>
+<pattern id="hospital_icon" x="0" y="0" width="18" height="18" >
+ <image xlink:href="hospital2.svg" x="3" y="5" width="18" height="20" color="red" />
+ </pattern>
+</defs>
+</svg>
+   </div>
+
+
+
+
+    <script type="text/javascript">
+
+    var measureControl = new L.Control.Measure({ position: 'bottomleft'});
+    var map = L.map('map',{preferCanvas:true,zoomControl: false,messagebox: true,sleep: true,sleepNote: false,zoomControl: false,wheelPxPerZoomLevel: 80,visualClickPane: 'tilePane',measureControl: true}).setView([6.6, 3.35], 16);
+
+
+    //HERE
+    const here ={
+      apiKey:'V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8'
+    };
+
+    const style = 'normal.day';
+
+    //HERE
+    //Basemap
+
+      var basemaps = [
+
+
+
+
+        L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+            attribution:'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+            // subdomains: "abcd",
+            maxZoom: 17,
+            minZoom: 1,
+            label: "Satellite"
+        }),
+
+        L.tileLayer("https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?apiKey=V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8&ppi=320", {
+            attribution:'&copy; HERE 2019',
+            // subdomains: "abcd",
+            maxZoom: 20,
+            minZoom: 0,
+            label: "HERE"
+        }),
+
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+
+              // subdomains: "abcd",
+              maxZoom: 20,
+              minZoom: 0,
+              label: "OSM"
+          })
+
+
+      ];
+
+
+      map.addControl(
+          L.control.basemaps({
+              basemaps: basemaps,
+              tileX: 0,
+              tileY: 0,
+              tileZ: 1
+          })
+      );
+
+
+
+      var credctrl = L.controlCredits({
+          image: "Ogsinfo.png",
+          link: "https://www.oggongo.com/",
+          text: "Contact Us<br/>at Oggongo Geospatial",
+          width: "55px",
+          height: "51px"
+      }).addTo(map);
+
+      //Scale
+      L.control.betterscale({metric: true, imperial: false, position:'bottomleft' , maxWidth: 200}).addTo(map);
+
+
+
+
+      //Adverts
+      var messages = [ 'Advertise with Us<img src="gtbmin.jpg" class="responsive" />', 'Reach a greater audience<img src="cokeadvertmin.jpg" class="responsive" />','Celebrate your BirthDay <img src="HappyBirthdaytoyoumin.jpg" class="responsive" /> ', 'Run a Promo<br />Campaign<br />for your brand<br /> <img src="bbnmin.jpg" class="responsive" />' ];
+      var positions = [ 'topright', 'topright', 'bottomright', 'bottomright' ];
+
+            var adverts =L.control.liveupdate ({
+                    update_map: function () {
+                      var i = Math.floor(Math.random() * messages.length);
+                      var msg = messages[i];
+                      var j = Math.floor(Math.random() * positions.length);
+                      var pos = positions[j];
+                      map.messagebox.setPosition(pos);
+                      map.messagebox.options.timeout = 6000;
+                      map.messagebox.show(msg);
+                    },
+                    // position: 'topleft',
+                    interval: 5000
+                  });
+
+  //Zoom bar
+
+//   var measureControl = new L.Control.Measure({ position: 'bottomleft' });
+// measureControl.addTo(myMap);
+
+
+  map.createPane('tilehigh');
+  map.createPane('tilemedium');
+  map.createPane('tilelow');
+  map.getPane('tilehigh').style.zIndex = 999;
+  map.getPane('tilemedium').style.zIndex =600;
+  map.getPane('tilelow').style.zIndex =100;
+
+  var markersLayergroup = new L.LayerGroup();	//layer contain searched elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+     //Loading a Building polygon
+     //var urlpol = "http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Abuildtype@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf";
+     var urlpol = "http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Abuildclass@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf";
+
+
+     var vectorTileOptionspol = {
+         layerURL: urlpol,
+         rendererFactory: L.canvas.tile,
+         tms: true,
+         crossOrigin:true,
+         vectorTileLayerStyles: {
+             'buildclass': function (properties, zoom) {
+
+                     return {
+                         weight: 2,
+                         color: 'grey',
+                         opacity: 1,
+                         fillColor: '#FFCBA4',
+                         fill: true,
+                         fillOpacity: 0.7,
+                         pane:'tilehigh'
+                     }
+
+             },
+         },
+         interactive: true,	//开启VectorGrid
+         getFeatureId: function (f) {
+             return f.properties.build_id;
+         }
+     };
+
+
+     var vectorTilepol = new L.vectorGrid.protobuf(urlpol, vectorTileOptionspol).addTo(map);
+
+
+
+     vectorTilepol.on('click', function (e) {
+         var properties = e.layer.properties;
+         //console.log(e.latlng);
+         L.popup()
+             .setContent(properties.build_clas + ": " + properties.address)
+             .setLatLng(e.latlng)
+             .openOn(map);
+     });
+
+     //map
+     map.on("zoom", function () {
+         map.closePopup();
+     });
+
+     // building Polygon
+
+     // poi atm
+     var urlatm ="http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Aatmspoi@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf";
+
+
+     var vectorTileOptionsatm = {
+         layerURL: urlatm,
+         rendererFactory: L.svg.tile,
+         tms: true,
+         crossOrigin:true,
+         vectorTileLayerStyles: {
+
+             'atmspoi':function (properties, zoom)  {
+
+               if(zoom >= 16){
+                 return{
+                   weight: 2,
+                   color: 'black',
+                   opacity: 1,
+                   stroke:true,
+                   // fillColor: '',
+                   fill: true,
+                   radius: 12,
+                   fillOpacity: 1,
+                   className:'atm_poi'
+                 }
+               }else if(zoom < 16){
+                 return{
+                   weight: 0,
+                   color: '',
+                   opacity: 0,
+                   fillColor: '',
+                   fill: false,
+                   radius: 0,
+                   fillOpacity: 0
+                 }
+
+               }
+
+                     }
+
+             },
+             interactive: true,	//开启VectorGrid触发mouse/pointer事件
+             getFeatureId: function (f) {
+                 return f.properties.build_id;
+             }
+
+         };
+
+
+var vectorTileatm = new L.vectorGrid.protobuf(urlatm, vectorTileOptionsatm).addTo(map);
+
+
+vectorTileatm.on('click', function (e) {
+    var properties = e.layer.properties;
+    //console.log();
+    L.popup()
+        .setContent(properties.build_use)
+        .setLatLng(e.latlng)
+        .openOn(map);
+});
+
+
+vectorTileatm.bringToFront();
+     //poi atm
+
+
+
+
+     //poi banks
+     var urlbanks = "http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Abankspoi@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+
+
+          var vectorTileOptionsbanks = {
+              layerURL: urlbanks,
+              rendererFactory: L.svg.tile,
+              tms: true,
+              crossOrigin:true,
+              vectorTileLayerStyles: {
+
+                  'bankspoi':function (properties, zoom)  {
+
+                    if(zoom >= 15){
+                      return{
+                        weight: 2,
+                        color: '#132BE2',
+                        opacity: 1,
+                        stroke:true,
+                        // fillColor: '',
+                        fill: true,
+                        radius: 12,
+                        fillOpacity: 1,
+                        className:'banks_poi'
+                      }
+                    }else if(zoom < 15){
+                      return{
+                        weight: 0,
+                        color: '',
+                        opacity: 0,
+                        fillColor: '',
+                        fill: false,
+                        radius: 0,
+                        fillOpacity: 0
+                      }
+
+                    }
+
+                          }
+
+                  },
+                  interactive: true,
+                  getFeatureId: function (f) {
+                      return f.properties.build_id;
+                  }
+
+              };
+
+              var vectorTilebanks = new L.vectorGrid.protobuf(urlbanks, vectorTileOptionsbanks).addTo(map);
+
+
+              vectorTilebanks.on('click', function (e) {
+                  var properties = e.layer.properties;
+                  //console.log();
+                  L.popup()
+                      .setContent(properties.build_use)
+                      .setLatLng(e.latlng)
+                      .openOn(map);
+              });
+
+
+              vectorTilebanks.bringToFront();
+
+     //poi banks
+
+     //poi hospital
+
+     var urlhospital = "http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Ahospitalspoi@EPSG%3A900913@pbf/{z}/{x}/{y}.pbf"
+
+
+          var vectorTileOptionshospitals = {
+              layerURL: urlhospital,
+              rendererFactory: L.svg.tile,
+              tms: true,
+              crossOrigin:true,
+              vectorTileLayerStyles: {
+
+                  'hospitalspoi':function (properties, zoom)  {
+
+                    if(zoom >= 16){
+                      return{
+                        weight: 2,
+                        color: 'red',
+                        opacity: 1,
+                        stroke:true,
+                        // fillColor: '',
+                        fill: true,
+                        radius: 12,
+                        fillOpacity: 1,
+                        className:'hospitals_poi'
+                      }
+                    }else if(zoom < 16){
+                      return{
+                        weight: 0,
+                        color: '',
+                        opacity: 0,
+                        fillColor: '',
+                        fill: false,
+                        radius: 0,
+                        fillOpacity: 0
+                      }
+
+                    }
+
+                          }
+
+                  },
+                  interactive: true,
+                  getFeatureId: function (f) {
+                      return f.properties.build_id;
+                  }
+
+              };
+
+              var vectorTilehospitals = new L.vectorGrid.protobuf(urlhospital, vectorTileOptionshospitals).addTo(map);
+
+
+              vectorTilehospitals.on('click', function (e) {
+                  var properties = e.layer.properties;
+                  //console.log();
+                  L.popup()
+                      .setContent(properties.build_use)
+                      .setLatLng(e.latlng)
+                      .openOn(map);
+              });
+
+
+              vectorTilehospitals.bringToFront();
+
+
+
+     //poi hospital
+
+     //Roads
+//var road = "http://3.15.24.127:8080/geoserver/ogs/wms?service=WMS&version=1.1.0&request=GetMap&layers=ogs%3Alagosroads&bbox=2.70895051956177%2C6.37590074539185%2C4.34692049026489%2C6.70700311660767&width=768&height=330&srs=EPSG%3A4326&format=image%2Fpng/{z}/{x}/{-y}.png"
+
+//var road = "http://3.15.24.127:8080/geoserver/gwc/demo/ogs:builduse?gridSet=EPSG:4326&format=image/png/{z}/{x}/{-y}.png"
+
+     // var wmsLayer = L.tileLayer.wms('http://3.15.24.127:8080/geoserver/ogs/wms?', {
+     //     layers: 'lagosroads'
+     // }).addTo(map);
+
+
+//      var tms_example = L.tileLayer('http://3.15.24.127:8080/geoserver/gwc/demo/ogs:lagosroads?gridSet=EPSG:4326&format=image/png/{z}/{x}/{-y}.png', {
+//     tms: true
+// }).addTo(map);
+
+//http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Aprimary_motor_roads@EPSG%3A4326@png
+//stardard
+var primaryroads= L.tileLayer('http://3.15.24.127:8080/geoserver/gwc/service/tms/1.0.0/ogs%3Aprimary_motor_roads@EPSG%3A900913@png/{z}/{x}/{-y}.png', {
+  opacity: 1,
+  stroke: true,
+  tms: true,
+  crossOrigin:true
+
+
+  }).addTo(map);
+
+
+
+
+     //Roads
+
+
+
+
+
+
+
+
+
+     // Geocode search
+
+     var osmsearch = new L.Control.Search({
+         url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+         jsonpParam: 'json_callback',
+         propertyName: 'display_name',
+         propertyLoc: ['lat','lon'],
+         circleLocation: false,
+         autoType: false,
+         autoCollapse: false,
+         minLength: 2,
+         zoom:13,
+         textPlaceholder: 'Search Addresses',
+         collapsed: false
+       });
+
+       osmsearch.addTo(map);
+
+       var marker;
+
+       osmsearch.on('search_locationfound', function(e) {
+         osmsearch.collapse();
+         if(marker){
+           map.removeLayer(marker);
+         }
+         var name = e.display_name;
+         marker = new L.marker([e.latlng.lat, e.latlng.lng], {icon: ovrdcMarker}).addTo(map);
+       });
+
+       //Toggle OSM Search and Feature Search - remove if no feature search
+       var hash = L.hash(map);
+       var gpsLocate = L.control.locate({follow: true, locateOptions: {enableHighAccuracy: true},flyTo:true});
+       //gpsLocate.addTo(map);
+       var homeExtent = L.control.defaultExtent({});
+       //homeExtent.addTo(map);
+       //var fullscreen = L.control.fullscreen();
+
+
+
+       var globalsearchToggle = new L.easyButton({
+           states: [{
+             stateName: 'show',
+             icon: 'fa-exchange fa-lg',
+             title: 'Search Addresses',
+             onClick: function(btn, map) {
+               osmsearch.addTo(map);
+             btn.state('hide');
+               }
+             },{
+             stateName: 'hide',
+           icon: 'fa-exchange fa-border fa-lg',
+             title: 'Search Features',
+             onClick: function(btn, map) {
+               map.removeControl(osmsearch);
+               btn.state('show');
+             }
+           }]
+         });
+
+
+         //Local search
+
+         //zoombox
+         var options = {
+           modal: true,
+           title: "Box area zoom"
+         };
+         var controlbox = L.control.zoomBox(options);
+
+         //zoombox
+
+
+
+         //Side bar
+         var overlays;
+         //var sidebar = L.control.sidebar('sidebar', { autoPan: false, closeButton: true });
+
+         var sidebar = L.control.sidebar('sidebar', { autoPan: false, closeButton: false });
+
+         sidebar.addTo(map);
+
+         var sidebarToggle = L.easyButton({
+               states: [{
+                       stateName: 'open-sidebar',   // name the state
+                       icon:      'fa-bars fa-lg',          // and define it's properties
+                       title:     'Show Sidebar', // like it's title
+                       onClick: function(btn, map) {  // and it's callback
+                           sidebar.show();
+                           btn.state('close-sidebar'); // change state on click!
+                       }
+                   }, {
+                       stateName: 'close-sidebar',
+                       icon:      'fa-times fa-2x',
+                       title:     'Hide Sidebar',
+                       onClick: function(btn, map) {
+                           sidebar.hide();
+                           btn.state('open-sidebar');
+                       }
+               }],
+             id: 'menu',
+          });
+
+          var stogglebar = L.easyBar([sidebarToggle], {id: 'toggle'}).addTo(map);
+          var leafletprint = L.easyPrint();
+          //Side bar tool bar end
+          sidebar.on('hide', function () {
+              sidebarToggle.state('open-sidebar');
+          });
+          sidebar.on('show', function () {
+              sidebarToggle.state('close-sidebar');
+          });
+
+
+          //mobile toolbar menu
+          //--tools toggle on small screens
+          var toolshidden = false;
+          var mobilescreen = false;
+
+
+          var tools = L.easyButton({
+                states: [{
+                        stateName: 'show-tools',   // name the state
+                        icon:      'fa-cogs fa-lg',          // and define it's properties
+                        title:     'Show Map Tools', // like it's title
+                        onClick: function(btn, map) {  // and it's callback
+                            leafletprint.addTo(map);
+                            gpsLocate.addTo(map);
+                            controlbox.addTo(map);
+                            homeExtent.addTo(map);
+                            //fullscreen.addTo(map);
+                            adverts.addTo(map).startUpdating();
+
+                            globalsearchToggle.addTo(map);
+
+
+                            btn.state('hide-tools'); // change state on click!
+                            toolshidden = false;
+                            //console.log(toolshidden + ' state changed to hideTools');
+                        }
+                    }, {
+                        stateName: 'hide-tools',
+                        icon:      'fa-cogs fa-border fa-lg',
+                        title:     'Hide Map Tools',
+                        onClick: function(btn, map) {
+                            map.removeControl(leafletprint);
+                            map.removeControl(gpsLocate);
+                            map.removeControl(controlbox);
+                            map.removeControl(homeExtent);
+                            //map.removeControl(fullscreen);
+                            map.removeControl(adverts);
+
+                            map.removeControl(globalsearchToggle);
+
+                            btn.state('show-tools');
+                            toolshidden = true;
+                            //console.log(toolshidden+ ' state changed to showTools');
+                        }
+                }],
+              id: 'tools',
+           });
+
+        var w = window.innerWidth;
+
+        if (w < 481) {
+          tools.addTo(map);
+          toolshidden = true;
+          mobilescreen = true;
+          //console.log('mobile tool toggle');
+          //console.log(toolshidden + "mobilescreen: " + mobilescreen);
+        }else{
+          leafletprint.addTo(map);
+          gpsLocate.addTo(map);
+          controlbox.addTo(map);
+          homeExtent.addTo(map);
+          //fullscreen.addTo(map);
+          adverts.addTo(map).startUpdating();
+
+          globalsearchToggle.addTo(map);
+
+          toolshidden = false;
+          //console.log(toolshidden + " " + mobilescreen);
+        }
+
+
+        window.onresize = function() {
+          if ( toolshidden === true && window.innerWidth > 480 && mobilescreen === true) {
+            leafletprint.addTo(map);
+            gpsLocate.addTo(map);
+            controlbox.addTo(map);
+            homeExtent.addTo(map);
+            //fullscreen.addTo(map);
+            adverts.addTo(map).startUpdating();
+
+            globalsearchToggle.addTo(map);
+
+            map.removeControl(tools);
+            toolshidden = false;
+            mobilescreen = false;
+            //console.log(toolshidden + " " + mobilescreen);
+          }
+          else if ( toolshidden === false && mobilescreen === true && window.innerWidth > 481) {
+            tools.state('show-tools');
+            mobilescreen = false;
+            map.removeControl(tools);
+            //console.log(toolshidden + "" + mobilescreen);
+          }
+          else if ( toolshidden === false && window.innerWidth < 481 && mobilescreen === false) {
+            map.removeControl(leafletprint);
+            map.removeControl(gpsLocate);
+            map.removeControl(controlbox);
+            map.removeControl(homeExtent);
+            //map.removeControl(fullscreen);
+            map.removeControl(adverts).startUpdating();
+
+            map.removeControl(globalsearchToggle);
+
+            tools.addTo(map);
+            toolshidden = true;
+            mobilescreen = true;
+            //console.log(toolshidden + " " + mobilescreen);
+          }
+          else {}
+        };
+
+//--end tools toggle
+
+
+
+
+
+
+         function loadGeoJson(data){
+           //console.log(data);
+           //geojsonLayer.addData(data);
+
+
+           for(var i= 0; i < data.totalFeatures; i++){
+             // console.log(data.features[i].properties.alias);
+             //console.log(data.features[i].geometry.coordinates);
+             var alias = data.features[i].properties.alias;
+             var loc = data.features[i].geometry.coordinates;
+
+
+             // console.log(loc[1]);
+             var marker = new L.circleMarker([loc[1],loc[0]], {
+               radius: 0,
+               fillColor: "",
+               color: "",
+               weight: 0,
+               opacity: 0,
+               pane:'tilelow',
+               name:alias,
+               fillOpacity: 0,
+               interactive:false
+           });
+             //var marker = new L.Marker(new L.latLng(loc), {title: alias} );
+             //console.log(marker);
+             markersLayergroup.addLayer(marker);
+
+
+           }
+         }
+
+
+         map.addLayer(markersLayergroup);
+
+         var controlSearch = new L.Control.Search({
+             layer: markersLayergroup,
+             initial: false,
+             zoom: 25,
+             marker: false,
+             propertyName:'name',
+             circleLocation: false,
+             textPlaceholder: 'Search for points',
+             collapsed: false
+
+             });
+
+             map.addControl(controlSearch);
+
+         //var poi ="http://3.15.24.127:8080/geoserver/ogs/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ogs%3Aikeja_poi&maxFeatures=50&outputFormat=text%2Fjavascript";
+
+         var poiurl ="http://3.15.24.127:8080/geoserver/ogs/ows/";
+
+
+         var defaultParameters ={
+           service : 'WFS',
+           version : '1.0.0',
+           request : 'GetFeature',
+           typeName : 'ogs:ikeja_poi',
+           maxFeatures : 10000,
+           outputFormat : 'text/javascript',
+           format_options : 'callback: loadGeoJson',
+           srsName : 'EPSG:4326'
+
+         };
+
+         var parameters = L.Util.extend(defaultParameters);
+
+
+         $.ajax({
+           jsonp:true,
+           url :poiurl + L.Util.getParamString(parameters),
+           dataType:'jsonp',
+           jsonpCallback:'loadGeoJson',
+           success:loadGeoJson
+
+         });
+
+
+         //Here Route
+
+         //var YOUR_APIKEY ='uyhzFMW493USYWHJNaA7eK_crbSfvbxqbgwwLLG08co';
+         var YOUR_APIKEY='V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8';
+
+         //var AUTOCOMPLETION_URL = 'https://autocomplete.geocoder.api.here.com/6.2/suggest.json';
+         var AUTOCOMPLETION_URL ='https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json';
+         //var GEOCODER_URL = 'https://geocoder.api.here.com/6.2/geocode.json';
+         var GEOCODER_URL = 'https://geocoder.ls.hereapi.com/6.2/geocode.json';
+         //var ROUTING_URL = 'https://route.api.here.com/routing/7.2/calculateroute.json';
+         var ROUTING_URL = 'https://route.ls.hereapi.com/routing/7.2/calculateroute.json';
+
+         var platform;
+         var map;
+         var behavior;
+         var ui;
+
+
+
+
+
+         $(document).ready(function () {
+
+        $('#olAuto').hide();
+        $("#modal_msg").hide();
+
+        var mapContainer = document.getElementById('maph');
+
+        // Initialize Communication with Back-end Services
+        platform = new H.service.Platform({
+            apikey: YOUR_APIKEY,
+            useCIT: true,
+            useHTTPS: true
+        });
+
+        // Obtain the default map types from the platform object:
+        var defaultLayers = platform.createDefaultLayers();
+
+
+        // Instantiate (and display) a map object
+        // maph = new H.Map(
+        //     mapContainer,
+        //      defaultLayers.vector.normal.map,
+        //     {
+        //         center: {
+        //             lat: 6.5244,
+        //             lng: 3.3792
+        //         },
+        //         zoom: 5
+        //     });
+        //
+        //     // Adds functionality such as panning and zooming to the map:
+        // behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(maph));
+        //
+        // // Create the default UI including the zoom control, map settings control and scalebar and panorama discovery control:
+        // ui = H.ui.UI.createDefault(maph, defaultLayers);
+
+
+        $("#auto-complete").keyup(function () {
+
+         var searchtext = $("#auto-complete").val();
+
+         var YOURAPIKEY ='V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8';
+
+         var params ='?query=' + encodeURIComponent(searchtext) +
+          '&beginHighlight=' + encodeURIComponent('<mark>') +
+          '&endHighlight=' + encodeURIComponent('</mark>') +
+          '&maxresults=5' +
+          '&apikey=' + YOURAPIKEY;
+
+
+
+          $.ajax({
+              url: AUTOCOMPLETION_URL + params,
+              type: 'get',
+              dataType: 'json',
+              success: onAutoCompleteSuccess,
+              error: onAutoCompleteFailed,
+          });
+        });
+
+
+        $("#show_button").click(function () {
+            var main_thing = document.getElementById("main_thing");
+            var map_thing = document.getElementById("map_thing");
+            if (main_thing.className == "main_area1") {
+                main_thing.className = "main_area1 main_area2";
+                map_thing.className = "map_area1 map_area2"
+            } else {
+                main_thing.className = "main_area1";
+                map_thing.className = "map_area1"
+            }
+            map.getViewPort().resize();
+        });
+
+        //handle resize and orientation changing
+        function resize(event) {
+            map.getViewPort().resize();
+        }
+        window.addEventListener('resize', resize);
+        window.addEventListener('orientationchange', resize);
+
+
+         });
+
+         function onAutoCompleteSuccess(response) {
+             clearOldSuggestions();
+             addSuggestionsToPanel(response);
+         }
+
+         function onAutoCompleteFailed(response) {
+             $("#modal_msg").html("error!");
+             $("#modal_msg").show();
+         }
+
+         function clearOldSuggestions() {
+             var ol = $('#olAuto');
+             ol.hide();
+             ol.empty();
+         }
+
+         function addSuggestionsToPanel(response) {
+             var ol = $('#olAuto');
+             ol.empty();
+             ol.show();
+
+             response.suggestions.forEach(function (item, ix, arr) {
+                 var data = `<li onclick="clickedSuggestion(this)" data-location-id="${item.locationId}">${item.label}</li>`
+                 ol.append(data);
+             });
+         }
+
+         function clickedSuggestion(element) {
+             $("#olAuto").hide();
+
+             var txt = $(element).text();
+             var locationId = $(element).data('location-id');
+
+             var ul = $("#ulDestinations");
+
+             if (!ul.text().includes(txt)) {
+                 var li = `<li data-location-id='${locationId}'><span><a href="#">${txt}</a><a href="#" onclick="this.parentElement.parentElement.removeChild(this.parentElement)">x</a></span></li>`
+                 $("#ulDestinations").append(li);
+
+                 resolveLocationId(locationId);
+             }
+
+             $("#auto-complete").val('');
+             $("#olAuto").empty();
+         }
+
+         // ====== here.com === Start of Developer Lab: Routing ======
+
+         function resolveLocationId(locationId)
+         {
+           var params = '?locationid=' + encodeURIComponent(locationId) +
+          '&apiKey=' + 'V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8';
+
+         $.ajax({
+           url: GEOCODER_URL + params,
+           type: 'get',
+           dataType: 'json',
+           success: function (response) {
+               addMarkerOntoMap(response);
+               addLocationToRoute(response);
+           },
+           error: onGeocodeFailed
+         });
+
+         }
+
+
+         var routeLocations = [];
+
+
+         function addLocationToRoute(response)
+         {
+           var loc = response.Response.View[0].Result[0].Location.DisplayPosition;
+           routeLocations = routeLocations.concat([loc]);
+
+           if (routeLocations.length < 2)
+             return;
+
+           var params = '?mode=fastest;car;traffic:disabled&routeAttributes=shape&walkSpeed=1.25' +
+             '&apiKey=' + 'V17DpM4qRHxAPvld1NtOZd6FOyK4KcDYB3BL0olwye8';
+
+           routeLocations.forEach(function (v,i)
+           {
+             params += `&waypoint${i}=geo!${v.Latitude},${v.Longitude}`;
+           });
+
+           $.ajax({
+             url: ROUTING_URL + params,
+             type: 'get',
+             dataType: 'json',
+             success: onRoutingSuccess,
+             error: onRoutingFailed
+           });
+
+         }
+
+         // ====== here.com === End of Developer Lab: Routing ======
+
+         function addMarkerOntoMap(response)
+         {
+             var loc = response.Response.View[0].Result[0].Location.DisplayPosition;
+             // maph.addObject(new H.map.Marker({lat:loc.Latitude,lng:loc.Longitude}));
+             var marker = L.marker([loc.Latitude, loc.Longitude]).addTo(map);
+             map.flyTo([loc.Latitude, loc.Longitude], 17);
+
+             // TODO: zoom to all markers: https://developer.here.com/api-explorer/maps-js/v3.0/markers/zoom-to-set-of-markers
+         }
+
+         function onGeocodeFailed(response)
+         {
+             // TODO
+         }
+
+         function onRoutingFailed(response)
+         {
+             // TODO
+         }
+
+         function onRoutingSuccess(result) {
+             var route,
+                 routeShape,
+                 startPoint,
+                 endPoint,
+                 linestring;
+
+             if(result.response.route) {
+
+                 // Pick the first route from the response:
+                 route = result.response.route[0];
+
+                 console.log(route);
+                 // Pick the route's shape:
+                 routeShape = route.shape;
+
+                 console.log(routeShape);
+
+                 // Create a linestring to use as a point source for the route line
+                 linestring = new H.geo.LineString();
+
+                 arraytot=[];
+
+                 // Push all the points in the shape into the linestring:
+                 routeShape.forEach(function(point) {
+                     var parts = point.split(',');
+                     arraytot.push(parts)
+                     // console.log(parts);
+                     // console.log(parts[1]);
+                     linestring.pushLatLngAlt(parts[0], parts[1]);
+                 });
+
+                 console.log(arraytot);
+
+                 // Retrieve the mapped positions of the requested waypoints:
+                 startPoint = route.waypoint[0].mappedPosition;
+                 endPoint = route.waypoint[1].mappedPosition;
+
+                 // Create a polyline to display the route:
+                 var routeLine = new H.map.Polyline(linestring, {
+                     style: { strokeColor: 'blue', lineWidth: 9 }
+                 });
+
+                 var latlngr = [routeShape];
+
+                 // console.log(latlngr);
+
+                 var polyline = L.polyline(arraytot, {color: 'red'}).addTo(map);
+                 map.fitBounds(polyline.getBounds());
+
+                 // Create a marker for the start point:
+                 var startMarker = new H.map.Marker({
+                     lat: startPoint.latitude,
+                     lng: startPoint.longitude
+                 });
+
+                 // Create a marker for the end point:
+                 var endMarker = new H.map.Marker({
+                     lat: endPoint.latitude,
+                     lng: endPoint.longitude
+                 });
+
+                 // Add the route polyline and the two markers to the map:
+                 map.addObjects([routeLine, startMarker, endMarker]);
+
+                 // Set the map's viewport to make the whole route visible:
+                 map.setViewBounds(routeLine.getBounds());
+             }
+         };
+
+
+
+
+
+
+
+
+        //Here Route
+
+    </script>
+
+  </body>
+
+  <footer>
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="introModal" role="dialog">
+      <div class="modal-dialog"> -->
+
+        <!-- Modal content-->
+        <!-- <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">Infrastructure Web Map Example</h2>
+          </div>
+          <div class="modal-body">
+            Infrastructure Web Map Example
+          </div>
+          <div class="modal-footer">
+            <span id="loadingMessage" class="animate-flicker" style="float:left;color:red;"></span><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+
+
+
+
+  </footer>
+</html>
